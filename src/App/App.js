@@ -14,12 +14,16 @@ class App extends Component {
         }
     }
 
+    setCurrentMovie = id => {
+        this.setState({ currentMovie: this.state.movies.find(movie => movie.id === id) })
+    }
+
     render() {
         return (
             <main style={{backgroundImage: `linear-gradient(to right, #000, #000 10%, rgb(0, 0, 0, .8) 35%, rgb(0, 0, 0, .7) 40%, rgb(0, 0, 0, 0.1) 60%), url(${this.state.currentMovie.backdrop_path})`}}>
                 <Header />
                 <MovieDetails />
-                <MoviesContainer movies={this.state.movies} />
+                <MoviesContainer movies={this.state.movies} setCurrentMovie={this.setCurrentMovie} />
             </main>
         )
     }

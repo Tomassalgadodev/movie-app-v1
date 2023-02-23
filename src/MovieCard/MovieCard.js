@@ -1,9 +1,12 @@
 import React from 'react';
 import './MovieCard.css';
 
-const MovieCard = () => {
+const MovieCard = ({ image, id, setCurrentMovie }) => {
     return (
-        <img className='movie-card' src='https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg' />
+        <img 
+            className='movie-card' src={image}
+            onClick={() => setCurrentMovie(id)}
+        />
     )
 }
 
