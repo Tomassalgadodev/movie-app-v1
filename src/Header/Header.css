@@ -1,0 +1,26 @@
+header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+}
+
+.main-heading {
+    color: #FFF;
+    font-size: 50px;
+    margin-left: 20px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 20px;
+}
+
+.sign-in-button {
+    margin-left: 20px
+}
+
+.search-bar {
+    margin-left: auto;
+    margin-right: 20px;
+}

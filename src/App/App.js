@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import movieData from '../movie-data';
+import Header from '../Header/Header'
 import './App.css';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
     render() {
         return (
             <main style={{backgroundImage: `linear-gradient(to right, #000, #000 10%, rgb(0, 0, 0, .8) 35%, rgb(0, 0, 0, .7) 40%, rgb(0, 0, 0, 0.1) 60%), url(${this.state.currentMovie.backdrop_path})`}}>
+                <Header />
     
             </main>
         )
