@@ -1,6 +1,7 @@
 main {
-    border: solid black 5px;
     min-height: 100vh;
     min-width: 100vw;
     box-sizing: border-box;
+    background-size: cover;
+    background-position: center center;
 }
