@@ -7,13 +7,13 @@ class App extends Component {
         super();
         this.state = {
             movieData: movieData,
-            currentMovie: movieData.movies[0]
+            currentMovie: movieData.movies[2]
         }
     }
 
     render() {
         return (
-            <main style={{backgroundImage: `url(${this.state.currentMovie.backdrop_path})`}}>
+            <main style={{backgroundImage: `linear-gradient(to right, #000, #000 10%, rgb(0, 0, 0, .8) 35%, rgb(0, 0, 0, .7) 40%, rgb(0, 0, 0, 0.1) 60%), url(${this.state.currentMovie.backdrop_path})`}}>
     
             </main>
         )
