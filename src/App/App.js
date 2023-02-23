@@ -6,13 +6,16 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            movieData: movieData
+            movieData: movieData,
+            currentMovie: movieData.movies[0]
         }
     }
 
     render() {
         return (
-            <h1>Hello</h1>
+            <main style={{backgroundImage: `url(${this.state.currentMovie.backdrop_path})`}}>
+    
+            </main>
         )
     }
 }
