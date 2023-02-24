@@ -1,8 +1,13 @@
 import React from 'react';
+import loadingRing from '../assets/loading-ring.png';
+import './LoadingPage.css'
 
 const LoadingPage = () => {
     return (
-        <h1>Welcome</h1>
+        <main className='loading-page'>
+            <img className='loading-ring' src={loadingRing}></img>
+            <h1 className='welcome-message'>Welcome</h1>
+        </main>
     )
 }
 
