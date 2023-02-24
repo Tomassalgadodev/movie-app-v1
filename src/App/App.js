@@ -20,6 +20,12 @@ class App extends Component {
         this.setState({ currentMovie: this.state.movies.find(movie => movie.id === id) })
     }
 
+    setCurrentMovieDetails = id => {
+        fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+            .then(res => res.json())
+            .then(data => this.setState({ currentMovieDetails: data.movie }));
+    }
+
     toggleDetailsPage = () => {
         this.setState(prevState => { 
             return ({
@@ -33,9 +39,7 @@ class App extends Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({ movies: data.movies, currentMovie: data.movies[0] });
-                fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${data.movies[0].id}`)
-                    .then(res => res.json())
-                    .then(data => this.setState({ currentMovieDetails: data.movie }));
+                this.setCurrentMovieDetails(data.movies[0].id)
             } 
         );
         
@@ -59,11 +63,15 @@ class App extends Component {
                                 title={this.state.currentMovie.title}
                                 releaseDate={this.state.currentMovie.release_date}
                                 rating={this.state.currentMovie.average_rating}
+                                tagline={this.state.currentMovieDetails.tagline}
+                                genres={this.state.currentMovieDetails.genres}
+                                runtime={this.state.currentMovieDetails.runtime}
                             />
                             <MoviesContainer 
                                 movies={this.state.movies} 
                                 currentMovie={this.state.currentMovie}
                                 setCurrentMovie={this.setCurrentMovie}
+                                setCurrentMovieDetails={this.setCurrentMovieDetails}
                             />
                         </React.Fragment>
                     }
