@@ -5,7 +5,7 @@ import './DetailsContainer.css';
 const DetailsContainer = ({ score, release, budget, length }) => {
 
     let [year, month, day] = release.split('-');
-    release = [month, day, year].join('/')
+    release = [month, day, year].join('/');
 
     return (
         <div className='details-container'>

@@ -5,6 +5,7 @@ import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import DetailsHeader from '../DetailsHeader/DetailsHeader';
 import DetailsContainer from '../DetailsContainer/DetailsContainer';
+import DetailsBody from '../DetailsBody/DetailsBody';
 import './App.css';
 
 class App extends Component {
@@ -99,6 +100,10 @@ class App extends Component {
                                 release={this.state.currentMovieDetails.release_date}
                                 budget={this.state.currentMovieDetails.budget}
                                 length={this.state.currentMovieDetails.runtime}
+                            />
+                            <DetailsBody 
+                                description={this.state.currentMovieDetails.overview}
+                                rating={this.state.currentMovieDetails.average_rating}
                             />
                         </React.Fragment>
                     }

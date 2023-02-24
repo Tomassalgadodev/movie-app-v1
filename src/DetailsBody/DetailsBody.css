@@ -1,0 +1,16 @@
+.details-body {
+    display: flex;    
+}
+
+.description {
+    width: 60%;
+}
+
+.rating {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.description-heading {
+    color: #FFF;
+}
