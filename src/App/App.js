@@ -4,6 +4,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import DetailsHeader from '../DetailsHeader/DetailsHeader';
+import DetailsContainer from '../DetailsContainer/DetailsContainer';
 import './App.css';
 
 class App extends Component {
@@ -88,10 +89,13 @@ class App extends Component {
                         </React.Fragment>
                     }
                     {this.state.detailsPage &&
-                        <DetailsHeader 
-                            title={this.state.currentMovieDetails.title}
-                            genres={this.state.currentMovieDetails.genres}
-                        />
+                        <React.Fragment>
+                            <DetailsHeader 
+                                title={this.state.currentMovieDetails.title}
+                                genres={this.state.currentMovieDetails.genres}
+                            />
+                            <DetailsContainer />
+                        </React.Fragment>
                     }
                 </main>
             )
