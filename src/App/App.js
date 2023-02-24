@@ -11,6 +11,7 @@ class App extends Component {
         this.state = {
             movies: movieData.movies,
             currentMovie: movieData.movies[0],
+            currentMovieDetails: '',
             detailsPage: false
         }
     }
@@ -20,12 +21,18 @@ class App extends Component {
     }
 
     toggleDetailsPage = () => {
-        console.log('working')
         this.setState(prevState => { 
             return ({
                 detailsPage: !prevState.detailsPage
             })
         })
+    }
+
+    componentDidMount = () => {
+        fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+            .then(res => res.json())
+            .then(data => this.setState({ movies: data.movies, currentMovie: data.movies[0] }));
+        
     }
 
     render() {
@@ -34,7 +41,7 @@ class App extends Component {
                     {
                         backgroundImage: `${!this.state.detailsPage ? 
                             'linear-gradient(to right, #000, #000 10%, rgb(0, 0, 0, .8) 35%, rgb(0, 0, 0, .7) 40%, rgb(0, 0, 0, 0.1) 60%),' : 
-                            'linear-gradient(to top, rgb(9, 22, 29), rgb(9, 22, 29) 50%, rgb(9, 22, 29, .8) 60%, rgb(9, 22, 29, .7) 70%, rgb(9, 22, 29, 0.1) 90%),'} 
+                            'linear-gradient(to top, rgb(9, 22, 29), rgb(9, 22, 29) 30%, rgb(9, 22, 29, .8) 60%, rgb(9, 22, 29, .7) 70%, rgb(9, 22, 29, 0.1) 90%),'} 
                             url(${this.state.currentMovie.backdrop_path})`
                     }
                 }>
