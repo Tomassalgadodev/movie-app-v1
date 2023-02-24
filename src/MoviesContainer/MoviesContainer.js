@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MoviesContainer.css'
 
-const MoviesContainer = ({ movies, setCurrentMovie }) => {
+const MoviesContainer = ({ movies, setCurrentMovie, currentMovie }) => {
 
     const movieCards = movies.map(movie => {
         return (
@@ -11,17 +11,18 @@ const MoviesContainer = ({ movies, setCurrentMovie }) => {
                 id={movie.id}
                 key={movie.id}
                 setCurrentMovie={setCurrentMovie}
+                isCurrent={movie.id === currentMovie.id ? true : false}
             />
         )
     })
 
     return (
-        <React.Fragment>
+        <div className='movies-section'>
             <h3 className='movies-container-heading'>Popular on Movie App</h3>
             <div className='movies-container'>
                 {movieCards}
             </div>
-        </React.Fragment>
+        </div>
     )
 }
 

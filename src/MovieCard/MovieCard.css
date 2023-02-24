@@ -1,5 +1,11 @@
 .movie-card {
-    height: 90%;
+    height: 85%;
     width: auto;
     margin-left: 20px;
+}
+
+.current-movie {
+    border: solid #FFF 5px;
+    border-radius: 10px;
+    height: 92%;
 }

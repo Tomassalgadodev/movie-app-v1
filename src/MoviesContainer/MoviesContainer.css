@@ -7,6 +7,9 @@
 }
 
 .movies-container-heading {
-    margin-top: 200px;
     color: #FFF;
+}
+
+.movies-section {
+    margin-top: 200px;
 }

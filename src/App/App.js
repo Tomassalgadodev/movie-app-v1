@@ -10,7 +10,7 @@ class App extends Component {
         super();
         this.state = {
             movies: movieData.movies,
-            currentMovie: movieData.movies[2]
+            currentMovie: movieData.movies[0]
         }
     }
 
@@ -29,7 +29,8 @@ class App extends Component {
                 />
                 <MoviesContainer 
                     movies={this.state.movies} 
-                    setCurrentMovie={this.setCurrentMovie} 
+                    currentMovie={this.state.currentMovie}
+                    setCurrentMovie={this.setCurrentMovie}
                 />
             </main>
         )

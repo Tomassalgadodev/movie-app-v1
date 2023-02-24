@@ -4,15 +4,25 @@ p {
 
 .movie-title {
     color: #FFF;
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .details-subheading {
     display: flex;
     width: 50%;
     align-items: center;
-    justify-content: space-around;
+}
+
+.details {
+    margin-left: 30px;
 }
 
 .tagline {
     width:50%;
+}
+
+.movie-details-section {
+    margin-left: 50px;
 }
