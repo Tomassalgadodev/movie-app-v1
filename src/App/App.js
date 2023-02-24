@@ -94,7 +94,12 @@ class App extends Component {
                                 title={this.state.currentMovieDetails.title}
                                 genres={this.state.currentMovieDetails.genres}
                             />
-                            <DetailsContainer />
+                            <DetailsContainer 
+                                score={this.state.currentMovieDetails.average_rating}
+                                release={this.state.currentMovieDetails.release_date}
+                                budget={this.state.currentMovieDetails.budget}
+                                length={this.state.currentMovieDetails.runtime}
+                            />
                         </React.Fragment>
                     }
                 </main>
