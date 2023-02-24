@@ -3,6 +3,7 @@ import movieData from '../movie-data';
 import Header from '../Header/Header';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
+import LoadingPage from '../LoadingPage/LoadingPage';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
             movies: '',
             currentMovie: '',
             currentMovieDetails: '',
+            loading: false,
             detailsPage: false
         }
     }
@@ -46,7 +48,7 @@ class App extends Component {
     }
 
     render() {
-        if (this.state.movies && this.state.currentMovie && this.state.currentMovieDetails) {
+        if (this.state.movies && this.state.currentMovie && this.state.currentMovieDetails && !this.state.loading) {
             return (
                 <main style={
                         {
@@ -82,7 +84,7 @@ class App extends Component {
             )
         } else {
             return (
-                <h1>Loading...</h1>
+                <LoadingPage />
             )
         }
     }
