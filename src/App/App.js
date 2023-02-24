@@ -22,8 +22,15 @@ class App extends Component {
         return (
             <main style={{backgroundImage: `linear-gradient(to right, #000, #000 10%, rgb(0, 0, 0, .8) 35%, rgb(0, 0, 0, .7) 40%, rgb(0, 0, 0, 0.1) 60%), url(${this.state.currentMovie.backdrop_path})`}}>
                 <Header />
-                <MovieDetails />
-                <MoviesContainer movies={this.state.movies} setCurrentMovie={this.setCurrentMovie} />
+                <MovieDetails 
+                    title={this.state.currentMovie.title}
+                    releaseDate={this.state.currentMovie.release_date}
+                    rating={this.state.currentMovie.average_rating}
+                />
+                <MoviesContainer 
+                    movies={this.state.movies} 
+                    setCurrentMovie={this.setCurrentMovie} 
+                />
             </main>
         )
     }

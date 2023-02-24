@@ -1,13 +1,18 @@
 import React from 'react';
 import './MovieDetails.css';
 
-const MovieDetails = () => {
+const MovieDetails = ({ title, releaseDate, rating }) => {
+
+    const releaseYear = releaseDate.substring(0, 4);
+    const averageRating = rating % 1 ? rating.toFixed(1) : rating;
+
+
     return (
         <section>
-            <h2 className='movie-title'>Movie Title</h2>
+            <h2 className='movie-title'>{title}</h2>
             <div className='details-subheading'>
-                <p>Rating</p>
-                <p>Year Released</p>
+                <p>Rating: {averageRating}</p>
+                <p>Year Released: {releaseYear}</p>
                 <p>Genres</p>
                 <p>Length</p>
             </div>
