@@ -1,0 +1,19 @@
+import React from 'react';
+
+const VideoCard = ({ youtubeKey }) => {
+    const videoLink = `https://www.youtube.com/embed/${youtubeKey}`;
+
+    return (
+        <iframe 
+            width="560" 
+            height="315" 
+            src={videoLink} 
+            title="YouTube video player" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen
+        ></iframe>
+    )
+}
+
+export default VideoCard;

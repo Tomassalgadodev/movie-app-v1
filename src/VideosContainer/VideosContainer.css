@@ -1,0 +1,17 @@
+video {
+    margin-top: 20px;
+}
+
+.videos-container {
+    background: rgba(116, 116, 116, 0.4);
+    height: 300px;    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: scroll;
+}
+
+.videos-heading {
+    color: white;
+}

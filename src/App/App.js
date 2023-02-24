@@ -6,6 +6,7 @@ import LoadingPage from '../LoadingPage/LoadingPage';
 import DetailsHeader from '../DetailsHeader/DetailsHeader';
 import DetailsContainer from '../DetailsContainer/DetailsContainer';
 import DetailsBody from '../DetailsBody/DetailsBody';
+import VideosContainer from '../VideosContainer/VideosContainer';
 import './App.css';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             movies: '',
             currentMovie: '',
             currentMovieDetails: '',
+            currentMovieVideos: '',
             loading: false,
             detailsPage: false
         }
@@ -28,6 +30,12 @@ class App extends Component {
         fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
             .then(res => res.json())
             .then(data => this.setState({ currentMovieDetails: data.movie }));
+    }
+
+    setCurrentMovieVideos = id => {
+        fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
+            .then(res => res.json())
+            .then(data => this.setState({ currentMovieVideos: data.videos }));
     }
 
     toggleDetailsPage = () => {
@@ -52,6 +60,7 @@ class App extends Component {
             .then(data => {
                 this.setState({ movies: data.movies, currentMovie: data.movies[0] });
                 this.setCurrentMovieDetails(data.movies[0].id);
+                this.setCurrentMovieVideos(data.movies[0].id);
             } 
         );
         
@@ -85,6 +94,7 @@ class App extends Component {
                                 currentMovie={this.state.currentMovie}
                                 setCurrentMovie={this.setCurrentMovie}
                                 setCurrentMovieDetails={this.setCurrentMovieDetails}
+                                setCurrentMovieVideos={this.setCurrentMovieVideos}
                                 showDetailsPage={this.showDetailsPage}
                             />
                         </React.Fragment>
@@ -104,6 +114,9 @@ class App extends Component {
                             <DetailsBody 
                                 description={this.state.currentMovieDetails.overview}
                                 rating={this.state.currentMovieDetails.average_rating}
+                            />
+                            <VideosContainer 
+                                videos={this.state.currentMovieVideos}
                             />
                         </React.Fragment>
                     }

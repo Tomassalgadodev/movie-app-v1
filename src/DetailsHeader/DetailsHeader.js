@@ -4,7 +4,7 @@ import './DetailsHeader.css';
 
 const DetailsHeader = ({ title, genres }) => {
 
-    const genreCards = genres.map(genre => <GenreCard genre={genre} />);
+    const genreCards = genres.map((genre, index) => <GenreCard genre={genre} key={index} />);
 
     return (
         <div>
