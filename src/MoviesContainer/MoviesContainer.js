@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MoviesContainer.css'
 
-const MoviesContainer = ({ movies, setCurrentMovie, setCurrentMovieDetails, currentMovie }) => {
+const MoviesContainer = ({ movies, setCurrentMovie, setCurrentMovieDetails, showDetailsPage, currentMovie }) => {
 
     const movieCards = movies.map(movie => {
         return (
@@ -12,6 +12,7 @@ const MoviesContainer = ({ movies, setCurrentMovie, setCurrentMovieDetails, curr
                 key={movie.id}
                 setCurrentMovie={setCurrentMovie}
                 setCurrentMovieDetails={setCurrentMovieDetails}
+                showDetailsPage={showDetailsPage}
                 isCurrent={movie.id === currentMovie.id ? true : false}
             />
         )

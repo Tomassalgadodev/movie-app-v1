@@ -1,7 +1,8 @@
 import React from 'react';
 import './MovieCard.css';
 
-const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, isCurrent }) => {
+const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, showDetailsPage, isCurrent }) => {
+
     return (
         <img 
             className={`movie-card ${isCurrent ? 'current-movie' : ''}`} src={image}
@@ -9,6 +10,7 @@ const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, isCurre
                 setCurrentMovie(id);
                 setCurrentMovieDetails(id);
             }}
+            onDoubleClick={() => showDetailsPage()}
         />
     )
 }

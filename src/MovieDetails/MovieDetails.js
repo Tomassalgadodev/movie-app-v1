@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieDetails.css';
 
-const MovieDetails = ({ title, releaseDate, rating, tagline, genres, runtime }) => {
+const MovieDetails = ({ title, releaseDate, rating, tagline, genres, runtime, showDetailsPage }) => {
 
     const releaseYear = releaseDate.substring(0, 4);
     const averageRating = rating % 1 ? rating.toFixed(1) : rating;
@@ -17,7 +17,7 @@ const MovieDetails = ({ title, releaseDate, rating, tagline, genres, runtime }) 
                 <p className='details'>{releaseYear} • {genres} • {runtime}</p>
             </div>
             <p className='tagline'>{tagline}</p>
-            <button>LEARN MORE</button>
+            <button onClick={showDetailsPage}>LEARN MORE</button>
         </section>
     )
 }

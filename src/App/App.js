@@ -36,12 +36,20 @@ class App extends Component {
         })
     }
 
+    showDetailsPage = () => {
+        this.setState({ detailsPage: true });
+    }
+
+    showHomePage = () => {
+        this.setState({ detailsPage: false });
+    }
+
     componentDidMount = () => {
         fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
             .then(res => res.json())
             .then(data => {
                 this.setState({ movies: data.movies, currentMovie: data.movies[0] });
-                this.setCurrentMovieDetails(data.movies[0].id)
+                this.setCurrentMovieDetails(data.movies[0].id);
             } 
         );
         
@@ -58,7 +66,7 @@ class App extends Component {
                                 url(${this.state.currentMovie.backdrop_path})`
                         }
                     }>
-                    <Header toggleDetailsPage={this.toggleDetailsPage} />
+                    <Header showHomePage={this.showHomePage} />
                     {!this.state.detailsPage &&
                         <React.Fragment>
                             <MovieDetails 
@@ -68,12 +76,14 @@ class App extends Component {
                                 tagline={this.state.currentMovieDetails.tagline}
                                 genres={this.state.currentMovieDetails.genres}
                                 runtime={this.state.currentMovieDetails.runtime}
+                                showDetailsPage={this.showDetailsPage}
                             />
                             <MoviesContainer 
                                 movies={this.state.movies} 
                                 currentMovie={this.state.currentMovie}
                                 setCurrentMovie={this.setCurrentMovie}
                                 setCurrentMovieDetails={this.setCurrentMovieDetails}
+                                showDetailsPage={this.showDetailsPage}
                             />
                         </React.Fragment>
                     }
