@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import movieData from '../movie-data';
 import Header from '../Header/Header';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import LoadingPage from '../LoadingPage/LoadingPage';
+import DetailsHeader from '../DetailsHeader/DetailsHeader';
 import './App.css';
 
 class App extends Component {
@@ -88,7 +88,10 @@ class App extends Component {
                         </React.Fragment>
                     }
                     {this.state.detailsPage &&
-                        <h1 style={{color: 'white'}}>Details</h1>
+                        <DetailsHeader 
+                            title={this.state.currentMovieDetails.title}
+                            genres={this.state.currentMovieDetails.genres}
+                        />
                     }
                 </main>
             )
