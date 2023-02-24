@@ -10,7 +10,8 @@ class App extends Component {
         super();
         this.state = {
             movies: movieData.movies,
-            currentMovie: movieData.movies[0]
+            currentMovie: movieData.movies[0],
+            detailsPage: false
         }
     }
 
@@ -18,20 +19,43 @@ class App extends Component {
         this.setState({ currentMovie: this.state.movies.find(movie => movie.id === id) })
     }
 
+    toggleDetailsPage = () => {
+        console.log('working')
+        this.setState(prevState => { 
+            return ({
+                detailsPage: !prevState.detailsPage
+            })
+        })
+    }
+
     render() {
         return (
-            <main style={{backgroundImage: `linear-gradient(to right, #000, #000 10%, rgb(0, 0, 0, .8) 35%, rgb(0, 0, 0, .7) 40%, rgb(0, 0, 0, 0.1) 60%), url(${this.state.currentMovie.backdrop_path})`}}>
-                <Header />
-                <MovieDetails 
-                    title={this.state.currentMovie.title}
-                    releaseDate={this.state.currentMovie.release_date}
-                    rating={this.state.currentMovie.average_rating}
-                />
-                <MoviesContainer 
-                    movies={this.state.movies} 
-                    currentMovie={this.state.currentMovie}
-                    setCurrentMovie={this.setCurrentMovie}
-                />
+            <main style={
+                    {
+                        backgroundImage: `${!this.state.detailsPage ? 
+                            'linear-gradient(to right, #000, #000 10%, rgb(0, 0, 0, .8) 35%, rgb(0, 0, 0, .7) 40%, rgb(0, 0, 0, 0.1) 60%),' : 
+                            'linear-gradient(to top, rgb(9, 22, 29), rgb(9, 22, 29) 50%, rgb(9, 22, 29, .8) 60%, rgb(9, 22, 29, .7) 70%, rgb(9, 22, 29, 0.1) 90%),'} 
+                            url(${this.state.currentMovie.backdrop_path})`
+                    }
+                }>
+                <Header toggleDetailsPage={this.toggleDetailsPage} />
+                {!this.state.detailsPage &&
+                    <React.Fragment>
+                        <MovieDetails 
+                            title={this.state.currentMovie.title}
+                            releaseDate={this.state.currentMovie.release_date}
+                            rating={this.state.currentMovie.average_rating}
+                        />
+                        <MoviesContainer 
+                            movies={this.state.movies} 
+                            currentMovie={this.state.currentMovie}
+                            setCurrentMovie={this.setCurrentMovie}
+                        />
+                    </React.Fragment>
+                }
+                {this.state.detailsPage &&
+                    <h1 style={{color: 'white'}}>Details</h1>
+                }
             </main>
         )
     }
