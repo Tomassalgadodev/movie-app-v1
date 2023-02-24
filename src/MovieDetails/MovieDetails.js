@@ -5,6 +5,7 @@ const MovieDetails = ({ title, releaseDate, rating, tagline, genres, runtime }) 
 
     const releaseYear = releaseDate.substring(0, 4);
     const averageRating = rating % 1 ? rating.toFixed(1) : rating;
+    genres = genres.join(', ')
 
 
     return (
