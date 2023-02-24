@@ -1,10 +1,12 @@
 import React from 'react';
+import './VideoCard.css';
 
 const VideoCard = ({ youtubeKey }) => {
     const videoLink = `https://www.youtube.com/embed/${youtubeKey}`;
 
     return (
-        <iframe 
+        <iframe
+            className='video-card' 
             width="560" 
             height="315" 
             src={videoLink} 
