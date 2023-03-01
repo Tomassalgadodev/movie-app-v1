@@ -26,7 +26,7 @@ describe('template spec', () => {
   it('As a user, when I load the application, I can see some of the current movies details displayed', () => {
     cy.get('.movie-details-section > h2').contains('Black Adam');
     cy.get('p[name="rating"]').contains('4/10');
-    cy.get('.details').contains('2022');
+    cy.get('.details').contains('Action, Fantasy, Science Fiction');
     cy.get('.tagline').contains('The world needed a hero. It got Black Adam.');
   });
 
@@ -81,6 +81,20 @@ describe('template spec', () => {
     cy.get('.description > p').contains('Nearly 5,000 years after he was bestowed');
     cy.get('.logo').click();
     cy.get('.movies-container');
+  });
+
+  it('As a user, when I click on a different movie poster, the movie details are updated including the background image', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/724495', {
+      statusCode: 200,
+      body: {
+        "movie":{"id":724495,"title":"The Woman King","poster_path":"https://image.tmdb.org/t/p/original//438QXt1E3WJWb3PqNniK0tAE5c1.jpg","backdrop_path":"https://image.tmdb.org/t/p/original//7zQJYV02yehWrQN6NjKsBorqUUS.jpg","release_date":"2022-09-15","overview":"The story of the Agojie, the all-female unit of warriors who protected the African Kingdom of Dahomey in the 1800s with skills and a fierceness unlike anything the world has ever seen, and General Nanisca as she trains the next generation of recruits and readies them for battle against an enemy determined to destroy their way of life.","genres":["Action","Drama","History"],"budget":50000000,"revenue":91000000,"runtime":135,"tagline":"Her reign begins.","average_rating":4}
+      }
+    });
+    cy.get('.movies-container').children().eq(1).click();
+    cy.get('.movie-details-section > h2').contains('The Woman King');
+    cy.get('p[name="rating"]').contains('4/10');
+    cy.get('.details').contains('Action, Drama, History');
+    cy.get('.tagline').contains('Her reign begins.');
   });
 });
 

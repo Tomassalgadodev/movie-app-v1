@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieCard.css';
 
-const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, setCurrentMovieVideos, showDetailsPage, isCurrent }) => {
+const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, setCurrentMovieVideos, showDetailsPage, isCurrent, key }) => {
 
     return (
         <img 
