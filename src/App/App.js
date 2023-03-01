@@ -16,7 +16,7 @@ class App extends Component {
             movies: '',
             currentMovie: '',
             currentMovieDetails: '',
-            currentMovieVideos: '',
+            currentMovieVideos: [],
             loading: false,
             detailsPage: false
         }

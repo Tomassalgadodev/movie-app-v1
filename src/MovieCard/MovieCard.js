@@ -5,7 +5,8 @@ const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, setCurr
 
     return (
         <img 
-            className={`movie-card ${isCurrent ? 'current-movie' : ''}`} src={image}
+            className={`movie-card ${isCurrent ? 'current-movie' : ''}`} 
+            src={image}
             onClick={() => {
                 setCurrentMovie(id);
                 setCurrentMovieDetails(id);

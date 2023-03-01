@@ -4,6 +4,8 @@ import './VideosContainer.css';
 
 const VideosContainer = ({ videos }) => {
 
+    videos = videos.sort(video => video.type === 'Trailer' ? -1 : 1)
+
     const videoCards = videos.map(video => {
         return (
             <VideoCard 

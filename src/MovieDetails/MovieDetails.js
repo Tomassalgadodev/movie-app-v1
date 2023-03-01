@@ -13,7 +13,7 @@ const MovieDetails = ({ title, releaseDate, rating, tagline, genres, runtime, sh
         <section className='movie-details-section'>
             <h2 className='movie-title'>{title}</h2>
             <div className='details-subheading'>
-                <p>{'<IMDB>'} {averageRating}/10</p>
+                <p name="rating">{'<IMDB>'} {averageRating}/10</p>
                 <p className='details'>{releaseYear} • {genres} • {runtime}</p>
             </div>
             <p className='tagline'>{tagline}</p>
