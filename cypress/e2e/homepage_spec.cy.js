@@ -95,6 +95,7 @@ describe('template spec', () => {
     cy.get('p[name="rating"]').contains('4/10');
     cy.get('.details').contains('Action, Drama, History');
     cy.get('.tagline').contains('Her reign begins.');
+    cy.get('main').invoke('attr', 'style').should('include', 'https://image.tmdb.org/t/p/original//7zQJYV02yehWrQN6NjKsBorqUUS.jpg');
   });
 });
 
