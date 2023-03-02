@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './MovieCard.css';
 
-const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, setCurrentMovieVideos, showDetailsPage, isCurrent, key }) => {
+const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, setCurrentMovieVideos, showDetailsPage, isCurrent }) => {
 
     return (
         <img 

@@ -19,7 +19,7 @@ const MovieDetails = ({ title, releaseDate, rating, tagline, genres, runtime, id
             </div>
             <p className='tagline'>{tagline}</p>
             <Link to={`/details/${id}`}>
-                <button>LEARN MORE</button>
+                <button onClick={showDetailsPage}>LEARN MORE</button>
             </Link>
         </section>
     )

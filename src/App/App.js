@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import LoadingPage from '../LoadingPage/LoadingPage';
+import DetailsPage from '../DetailsPage/DetailsPage';
 import DetailsHeader from '../DetailsHeader/DetailsHeader';
 import DetailsContainer from '../DetailsContainer/DetailsContainer';
 import DetailsBody from '../DetailsBody/DetailsBody';
@@ -103,14 +104,13 @@ class App extends Component {
                             </React.Fragment>
                         )
                     }}/>
-                    <Route exact path='/details/:movieId' render={({ match }) => {
+                    <Route exact path='/details/:movieId' render={({ match }) => {                 
                         return (
                             <React.Fragment>
-                                <DetailsHeader 
-                                    title={this.state.currentMovieDetails.title}
-                                    genres={this.state.currentMovieDetails.genres}
+                                <DetailsPage
+                                    id={match.params.movieId}
                                 />
-                                <DetailsContainer 
+                                {/* <DetailsContainer 
                                     score={this.state.currentMovieDetails.average_rating}
                                     release={this.state.currentMovieDetails.release_date}
                                     budget={this.state.currentMovieDetails.budget}
@@ -122,7 +122,7 @@ class App extends Component {
                                 />
                                 <VideosContainer 
                                     videos={this.state.currentMovieVideos}
-                                />
+                                /> */}
                             </React.Fragment>
                         )
                     }}/>

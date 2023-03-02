@@ -16,4 +16,5 @@ const DetailsHeader = ({ title, genres }) => {
     )
 }
 
+
 export default DetailsHeader;
