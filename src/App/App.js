@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
@@ -78,7 +79,30 @@ class App extends Component {
                         }
                     }>
                     <Header showHomePage={this.showHomePage} />
-                    {!this.state.detailsPage &&
+                    <Route exact path='/' render={() => {
+                        return (
+                            <React.Fragment>
+                                <MovieDetails 
+                                    title={this.state.currentMovie.title}
+                                    releaseDate={this.state.currentMovie.release_date}
+                                    rating={this.state.currentMovie.average_rating}
+                                    tagline={this.state.currentMovieDetails.tagline}
+                                    genres={this.state.currentMovieDetails.genres}
+                                    runtime={this.state.currentMovieDetails.runtime}
+                                    showDetailsPage={this.showDetailsPage}
+                                />
+                                <MoviesContainer 
+                                    movies={this.state.movies} 
+                                    currentMovie={this.state.currentMovie}
+                                    setCurrentMovie={this.setCurrentMovie}
+                                    setCurrentMovieDetails={this.setCurrentMovieDetails}
+                                    setCurrentMovieVideos={this.setCurrentMovieVideos}
+                                    showDetailsPage={this.showDetailsPage}
+                                />
+                            </React.Fragment>
+                        )
+                    }}/>
+                    {/* {!this.state.detailsPage &&
                         <React.Fragment>
                             <MovieDetails 
                                 title={this.state.currentMovie.title}
@@ -98,7 +122,7 @@ class App extends Component {
                                 showDetailsPage={this.showDetailsPage}
                             />
                         </React.Fragment>
-                    }
+                    } */}
                     {this.state.detailsPage &&
                         <React.Fragment>
                             <DetailsHeader 
