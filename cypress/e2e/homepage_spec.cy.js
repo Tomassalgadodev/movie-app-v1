@@ -84,6 +84,7 @@ describe('template spec', () => {
   });
 
   it('As a user, when I click on a different movie poster, the movie details are updated including the background image', () => {
+    cy.get('main').invoke('attr', 'style').should('include', 'https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg');
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/724495', {
       statusCode: 200,
       body: {
