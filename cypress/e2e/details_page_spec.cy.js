@@ -58,4 +58,4 @@ describe('template spec', () => {
     cy.get('.video-card').eq(1).invoke('attr', 'src').should('eq', 'https://www.youtube.com/embed/b1pMQasDnhM');
     cy.get('.video-card').eq(2).invoke('attr', 'src').should('eq', 'https://www.youtube.com/embed/F_pYZ2HEW3E');
   });
-})
+});
