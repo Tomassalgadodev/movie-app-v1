@@ -89,6 +89,7 @@ class App extends Component {
                                     tagline={this.state.currentMovieDetails.tagline}
                                     genres={this.state.currentMovieDetails.genres}
                                     runtime={this.state.currentMovieDetails.runtime}
+                                    id={this.state.currentMovieDetails.id}
                                     showDetailsPage={this.showDetailsPage}
                                 />
                                 <MoviesContainer 
@@ -98,6 +99,29 @@ class App extends Component {
                                     setCurrentMovieDetails={this.setCurrentMovieDetails}
                                     setCurrentMovieVideos={this.setCurrentMovieVideos}
                                     showDetailsPage={this.showDetailsPage}
+                                />
+                            </React.Fragment>
+                        )
+                    }}/>
+                    <Route exact path='/details/:movieId' render={({ match }) => {
+                        return (
+                            <React.Fragment>
+                                <DetailsHeader 
+                                    title={this.state.currentMovieDetails.title}
+                                    genres={this.state.currentMovieDetails.genres}
+                                />
+                                <DetailsContainer 
+                                    score={this.state.currentMovieDetails.average_rating}
+                                    release={this.state.currentMovieDetails.release_date}
+                                    budget={this.state.currentMovieDetails.budget}
+                                    length={this.state.currentMovieDetails.runtime}
+                                />
+                                <DetailsBody 
+                                    description={this.state.currentMovieDetails.overview}
+                                    rating={this.state.currentMovieDetails.average_rating}
+                                />
+                                <VideosContainer 
+                                    videos={this.state.currentMovieVideos}
                                 />
                             </React.Fragment>
                         )
@@ -123,7 +147,7 @@ class App extends Component {
                             />
                         </React.Fragment>
                     } */}
-                    {this.state.detailsPage &&
+                    {/* {this.state.detailsPage &&
                         <React.Fragment>
                             <DetailsHeader 
                                 title={this.state.currentMovieDetails.title}
@@ -143,7 +167,7 @@ class App extends Component {
                                 videos={this.state.currentMovieVideos}
                             />
                         </React.Fragment>
-                    }
+                    } */}
                 </main>
             )
         } else {

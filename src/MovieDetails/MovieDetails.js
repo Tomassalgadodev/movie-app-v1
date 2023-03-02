@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MovieDetails.css';
 
-const MovieDetails = ({ title, releaseDate, rating, tagline, genres, runtime, showDetailsPage }) => {
+const MovieDetails = ({ title, releaseDate, rating, tagline, genres, runtime, id, showDetailsPage }) => {
 
     const releaseYear = releaseDate.substring(0, 4);
     const averageRating = rating % 1 ? rating.toFixed(1) : rating;
@@ -17,7 +18,9 @@ const MovieDetails = ({ title, releaseDate, rating, tagline, genres, runtime, sh
                 <p className='details'>{releaseYear} • {genres} • {runtime}</p>
             </div>
             <p className='tagline'>{tagline}</p>
-            <button onClick={showDetailsPage}>LEARN MORE</button>
+            <Link to={`/details/${id}`}>
+                <button>LEARN MORE</button>
+            </Link>
         </section>
     )
 }
