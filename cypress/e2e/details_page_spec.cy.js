@@ -32,4 +32,12 @@ describe('template spec', () => {
     cy.get('.genre').eq(1).contains('Fantasy');
     cy.get('.genre').eq(2).contains('Science Fiction');
   });
+
+  it('As a user, when I visit the details page, I should see the movies detail cards displayed', () => {
+    cy.get('.detail-card').eq(0).contains('4');
+    cy.get('.detail-card').eq(1).contains('R');
+    cy.get('.detail-card').eq(2).contains('10/19/2022');
+    cy.get('.detail-card').eq(3).contains('$2');
+    cy.get('.detail-card').eq(4).contains('125 min');
+  });
 })
