@@ -21,7 +21,11 @@ describe('template spec', () => {
       }
     });
     cy.get('.movie-details-section > button').click();
-  })
+  });
+
+  it('As a user, when I visit the details page, I should still see the header displayed', () => {
+    cy.get('header');
+  });
 
   it('As a user, when I visit the details page, I should see the movies title displayed', () => {
     cy.get('.title').contains('Black Adam');
@@ -39,5 +43,19 @@ describe('template spec', () => {
     cy.get('.detail-card').eq(2).contains('10/19/2022');
     cy.get('.detail-card').eq(3).contains('$2');
     cy.get('.detail-card').eq(4).contains('125 min');
+  });
+
+  it('As a user, when I visit the details page, I should see the movies description displayed', () => {
+    cy.get('.description > p').contains('Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.');
+  });
+
+  it('As a user, when I visit the details page, I should see the movies iMDB rating displayed', () => {
+    cy.get('.rating > p').contains('4/10');
+  });
+
+  it('As a user, when I visit the details page, I should see the movies video cards displayed', () => {
+    cy.get('.video-card').eq(0).invoke('attr', 'src').should('eq', 'https://www.youtube.com/embed/I9B6rwW35GQ');
+    cy.get('.video-card').eq(1).invoke('attr', 'src').should('eq', 'https://www.youtube.com/embed/b1pMQasDnhM');
+    cy.get('.video-card').eq(2).invoke('attr', 'src').should('eq', 'https://www.youtube.com/embed/F_pYZ2HEW3E');
   });
 })
