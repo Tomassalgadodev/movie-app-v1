@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './MovieCard.css';
 
-const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, setCurrentMovieVideos, showDetailsPage, isCurrent }) => {
-
+const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, isCurrent, setBackgroundImage, backgroundImage }) => {
+    const history = useHistory();
     return (
         <img 
             className={`movie-card ${isCurrent ? 'current-movie' : ''}`} 
@@ -11,7 +11,8 @@ const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, setCurr
             onClick={() => {
                 setCurrentMovie(id);
                 setCurrentMovieDetails(id);
-                setCurrentMovieVideos(id);
+                setBackgroundImage(backgroundImage , false);
+                history.push(`/${id}`);
             }}
         />
     )

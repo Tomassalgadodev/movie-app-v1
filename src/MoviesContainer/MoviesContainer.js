@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MoviesContainer.css'
 
-const MoviesContainer = ({ movies, setCurrentMovie, setCurrentMovieDetails, setCurrentMovieVideos, showDetailsPage, currentMovie }) => {
+const MoviesContainer = ({ movies, setCurrentMovie, setCurrentMovieDetails, showDetailsPage, currentMovie, setBackgroundImage }) => {
 
     const movieCards = movies.map(movie => {
         return (
@@ -12,9 +12,10 @@ const MoviesContainer = ({ movies, setCurrentMovie, setCurrentMovieDetails, setC
                 key={movie.id}
                 setCurrentMovie={setCurrentMovie}
                 setCurrentMovieDetails={setCurrentMovieDetails}
-                setCurrentMovieVideos={setCurrentMovieVideos}
                 showDetailsPage={showDetailsPage}
                 isCurrent={movie.id === currentMovie.id ? true : false}
+                setBackgroundImage={setBackgroundImage}
+                backgroundImage={movie.backdrop_path}
             />
         )
     })
