@@ -31,10 +31,16 @@ class DetailsPage extends Component {
             this.setState({ movieDetails: data.movie });
             this.setVideos(this.props.id);
             this.props.setBackgroundImage(data.movie.backdrop_path, true);
+            // this.props.setCurrentMovie(this.props.id);
         });
     }
 
+    componentWillUnmount = () => {
+        this.props.resetHomePage();
+    }
+
     render() {
+        console.log(this.state)
         if (!this.state.loading) {
             return (
                 <React.Fragment>

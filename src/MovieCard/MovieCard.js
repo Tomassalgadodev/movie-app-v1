@@ -12,7 +12,7 @@ const MovieCard = ({ image, id, setCurrentMovie, setCurrentMovieDetails, isCurre
                 setCurrentMovie(id);
                 setCurrentMovieDetails(id);
                 setBackgroundImage(backgroundImage , false);
-                history.push(`/${id}`);
+                // history.push(`/${id}`);
             }}
         />
     )

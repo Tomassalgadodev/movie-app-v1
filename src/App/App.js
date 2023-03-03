@@ -23,6 +23,7 @@ class App extends Component {
 
     setCurrentMovie = id => {
         this.setState({ currentMovie: this.state.movies.find(movie => movie.id === id) })
+        console.log(this.state);
     }
 
     setCurrentMovieDetails = id => {
@@ -36,6 +37,16 @@ class App extends Component {
             'linear-gradient(to right, #000, #000 10%, rgb(0, 0, 0, .8) 35%, rgb(0, 0, 0, .7) 40%, rgb(0, 0, 0, 0.1) 60%),' : 
             'linear-gradient(to top, rgb(9, 22, 29), rgb(9, 22, 29) 30%, rgb(9, 22, 29, .8) 60%, rgb(9, 22, 29, .7) 70%, rgb(9, 22, 29, 0.1) 90%),'} 
             url(${image})`});
+    }
+
+    resetHomePage = () => {
+        this.setState(prevState => {
+            this.setBackgroundImage(prevState.movies[0].backdrop_path, false);
+            this.setCurrentMovieDetails(prevState.movies[0].id);
+            return {
+                currentMovie: prevState.movies[0]
+            }
+        });
     }
 
     componentDidMount = () => {
@@ -80,14 +91,14 @@ class App extends Component {
                             </React.Fragment>
                         )
                     }}/>
-                    <Route exact path='/:movieId' render={({ match }) => {
+                    {/* <Route exact path='/:movieId' render={({ match }) => {
                         return (
                             <HomePage currentMovieId={match.params.movieId} movies={this.state.movies} setBackgroundImage={this.setBackgroundImage}/>
                         )
-                    }}/>
+                    }}/> */}
                     <Route exact path='/details/:movieId' render={({ match }) => {                 
                         return (
-                            <DetailsPage id={match.params.movieId} setBackgroundImage={this.setBackgroundImage} />
+                            <DetailsPage id={match.params.movieId} setBackgroundImage={this.setBackgroundImage} setCurrentMovie={this.setCurrentMovie} resetHomePage={this.resetHomePage} />
                         )
                     }}/>
                 </main>
